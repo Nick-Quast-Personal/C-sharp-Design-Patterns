@@ -6,8 +6,8 @@ Design patterns are reusable solutions to common software design problems. They 
 
 ## Patterns Included
 
-- **[Observer Design Pattern](./Observer%20Design%20Pattern/)** - Demonstrates the Observer pattern with a trucking company example. Includes both JavaScript and TypeScript implementations.
-- **Strategy Design Pattern** (coming soon)
+- **[observer-design-pattern](./observer-design-pattern/)** - Demonstrates the Observer pattern with a trucking company example. Includes both JavaScript and TypeScript implementations.
+- **[strategy-design-pattern](./strategy-design-pattern/)** - Demonstrates the Strategy pattern with a shipping cost calculator example in TypeScript.
 - **Factory Design Pattern** (coming soon)
 
 ## How to Run
@@ -17,20 +17,32 @@ Each folder is self-contained with its own files and dependencies.
 ### Observer Design Pattern
 
 ```bash
-cd "Observer Design Pattern"
+cd observer-design-pattern
 node index.js        # Run the JavaScript version
 # or
 npx ts-node index.ts # Run the TypeScript version (requires ts-node)
+```
+
+### Strategy Design Pattern
+
+```bash
+cd strategy-design-pattern
+npm install
+npm start
 ```
 
 ## Project Structure
 
 ```
 C-sharp-Design-Patterns/
-├── Observer Design Pattern/
+├── observer-design-pattern/
 │   ├── index.js
 │   ├── index.ts
 │   └── package.json
+├── strategy-design-pattern/
+│   ├── src/
+│   ├── package.json
+│   └── tsconfig.json
 ├── README.md
 └── (more patterns to come)
 ```

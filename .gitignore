@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# .NET / C#
+bin/
+obj/
+*.user
+*.suo
+*.cache
+
+# Environment
+.env
+.env.*

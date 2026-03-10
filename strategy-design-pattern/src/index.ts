@@ -114,7 +114,7 @@ function askForMethod(packageWeight: number): void {
           .toFixed(2)} \n`
       );
 
-      // NEW: Ask if user wants to try another strategy
+      // Ask if user wants to try another strategy
       askToCompareShipping(packageWeight, calculator);
     }
   );

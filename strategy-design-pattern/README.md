@@ -22,7 +22,7 @@ A `ShippingCalculator` context class delegates cost calculation to a `ShippingSt
 | `expressShipping` | $3.00/lb | $5.00 |
 | `overnightShipping` | $5.00/lb | $10.00 |
 
-The demo prompts you for a package weight, then calculates the cost with each strategy, swapping strategies at runtime using `setStrategy()`.
+The demo prompts you for a package weight, lets you select an initial strategy, then allows you to switch and compare other strategies at runtime using `setStrategy()`.
 
 ## How to Run
 
@@ -37,11 +37,30 @@ npm run dev
 ```
 === Strategy Design Pattern: Shipping Cost Calculator ===
 
-How many pounds is your package? 15
+Shipping Options:
+  - Ground Shipping___________________ Package Weight x $1.50/lb
+  - Express Shipping__________________ Package Weight x $3.00/lb + $5.00 handling fee
+  - Overnight Shipping________________ Package Weight x $5.00/lb + $10.00 handling fee 
 
-Package weight: 15 lbs
+Question: How many pounds is your package? 15
 
-Ground Shipping (15 lbs x $1.50/lb):__________________$22.50
-Express Shipping (15 lbs x $3.00/lb + $5.00):_________$50.00
-Overnight Shipping (15 lbs x $5.00/lb + $10.00):______$85.00
+ Package weight: 15 lbs 
+
+Question: Which shipping method would you like to use? (Ground, Express, or Overnight): ground
+
+You have selected Ground shipping. 
+
+The cost of Ground shipping for your package is: $22.50 
+
+Question: Would you like to switch your shipping method? (yes/no): yes
+
+ Which method would you like to switch to? (Ground, Express, or Overnight): overnight
+
+You have selected Overnight shipping. 
+
+The cost of Overnight shipping for your package is: $85.00 
+
+Question: Would you like to switch your shipping method? (yes/no): no
+
+ Thank you, your package will be shipped soon. Have a good day! 
 ```

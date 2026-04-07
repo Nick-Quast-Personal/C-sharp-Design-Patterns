@@ -1,0 +1,15 @@
+{
+  "name": "factory-method-design-pattern",
+  "version": "1.0.0",
+  "description": "Factory Method Design Pattern demo using NY vs Chicago pizza stores",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js",
+    "dev": "tsc && node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "typescript": "^5.7"
+  }
+}

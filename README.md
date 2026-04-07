@@ -8,7 +8,7 @@ Design patterns are reusable solutions to common software design problems. They 
 
 - **[observer-design-pattern](./observer-design-pattern/)** - Demonstrates the Observer pattern with a trucking company example. Includes both JavaScript and TypeScript implementations.
 - **[strategy-design-pattern](./strategy-design-pattern/)** - Demonstrates the Strategy pattern with a shipping cost calculator example in TypeScript.
-- **Factory Design Pattern** (coming soon)
+- **[factory-method-design-pattern](./factory-method-design-pattern/)** - Demonstrates the Factory Method pattern with New York vs Chicago pizza stores (thin crust vs deep dish) in TypeScript.
 
 ## How to Run
 
@@ -31,6 +31,14 @@ npm install
 npm start
 ```
 
+### Factory Method Design Pattern
+
+```bash
+cd factory-method-design-pattern
+npm install
+npm run dev
+```
+
 ## Project Structure
 
 ```
@@ -40,6 +48,10 @@ C-sharp-Design-Patterns/
 │   ├── index.ts
 │   └── package.json
 ├── strategy-design-pattern/
+│   ├── src/
+│   ├── package.json
+│   └── tsconfig.json
+├── factory-method-design-pattern/
 │   ├── src/
 │   ├── package.json
 │   └── tsconfig.json

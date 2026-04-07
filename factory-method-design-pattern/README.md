@@ -41,7 +41,7 @@ Stores:
   - New York Pizza Store______________ thin crust, cut into traditional triangle slices.
   - Chicago Pizza Store_______________ deep dish, cut into square slices.
 
-Menus (each store offers different types):
+Menus (each store offers different types of pizzas):
   - New York: cheese, pepperoni
   - Chicago:  cheese, sausage
 
@@ -49,16 +49,26 @@ Question: Would you like to order a pizza? (yes/no): yes
 
 Question: Which store would you like to order from? (NY or Chicago): ny
 
-   Ordering from New York Pizza Store.
+   Ordering from the New York Pizza Store.
 
 Question: What pizza would you like? (cheese or pepperoni): pepperoni
+
+ Your Pizza is being prepared...
 
  --- Watch your progress ---
 
 ...Preparing New York Pepperoni Pizza (thin crust, pepperoni)
 ......Baking New York Pepperoni Pizza
 .........Cutting into traditional triangle slices
-............Placing New York Pepperoni Pizza in official Coach Beard's PizzaStore box
+............Placing New York Pepperoni Pizza in official Coach Beard's PizzaStore box.
 
-Enjoy your pizza!
+ --- Order Up! ---
+
+ --- Your order is ready! ---
+
+ Enjoy your pizza!
+
+Question: Would you like to order another pizza? (yes/no): no
+
+Thank you for visiting Coach Beard's Pizza Store! See you again soon!
 ```

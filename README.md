@@ -9,6 +9,7 @@ Design patterns are reusable solutions to common software design problems. They 
 - **[observer-design-pattern](./observer-design-pattern/)** - Demonstrates the Observer pattern with a trucking company example. Includes both JavaScript and TypeScript implementations.
 - **[strategy-design-pattern](./strategy-design-pattern/)** - Demonstrates the Strategy pattern with a shipping cost calculator example in TypeScript.
 - **[factory-method-design-pattern](./factory-method-design-pattern/)** - Demonstrates the Factory Method pattern with New York vs Chicago pizza stores (thin crust vs deep dish) in TypeScript.
+- **[singleton-design-pattern](./singleton-design-pattern/)** - Demonstrates the Singleton pattern with a shared game scoreboard (radio and TV broadcasts) in TypeScript.
 
 ## How to Run
 
@@ -39,6 +40,14 @@ npm install
 npm run dev
 ```
 
+### Singleton Design Pattern
+
+```bash
+cd singleton-design-pattern
+npm install
+npm run dev
+```
+
 ## Project Structure
 
 ```
@@ -52,6 +61,10 @@ C-sharp-Design-Patterns/
 │   ├── package.json
 │   └── tsconfig.json
 ├── factory-method-design-pattern/
+│   ├── src/
+│   ├── package.json
+│   └── tsconfig.json
+├── singleton-design-pattern/
 │   ├── src/
 │   ├── package.json
 │   └── tsconfig.json

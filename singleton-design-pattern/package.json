@@ -1,0 +1,15 @@
+{
+  "name": "singleton-design-pattern",
+  "version": "1.0.0",
+  "description": "Singleton Design Pattern demo using a shared game scoreboard",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js",
+    "dev": "tsc && node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "typescript": "^5.7"
+  }
+}

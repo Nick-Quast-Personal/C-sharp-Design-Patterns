@@ -1,6 +1,7 @@
 // ----------------------------------- Singleton Code Example! -----------------------------------
 // ----- Behind the scenes code / logic -----
 
+// This allows us to read input from the terminal.
 import * as readline from "readline";
 import { getRandomRichmondPlayer } from "./afcRichmondPlayers";
 import {
@@ -10,13 +11,13 @@ import {
   richmondWonCoinToss,
 } from "./coinToss";
 
-// This just lets us read input from the terminal.
+// Set up readline to read terminal input.
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-// The GameScoreboard class is a singleton. This means that only one instance of the class can be created.
+// GameScoreboard (Singleton. (Only one instance of the class can be created.))
 class GameScoreboard {
   private static instance: GameScoreboard | undefined;
 
@@ -68,13 +69,12 @@ class GameScoreboard {
   }
 }
 
-function quitDemo(): void {
-  console.log("\n\n ------------------------------------------------------------------------------ \n");
-  console.log("\n  Thank you for visiting Nelson Road Stadium and supporting AFC Richmond! \n");
-  console.log("\n  Have a great day! \n");
-  console.log("\n ------------------------------------------------------------------------------ \n\n\n");
-  rl.close();
-}
+
+
+
+// --- DEMO! In the terminal, run "npm run dev" to start! ---
+console.log("\n=============== Singleton Design Pattern: Game Scoreboard ===============\n");
+askStartOrCancel();
 
 function askStartOrCancel(): void {
   console.log("\n Welcome to the AFC Richmond vs. West Ham United game! \n");
@@ -164,14 +164,17 @@ function runControlPanel(): void {
         console.log("\n  ————————————————————————————————————————————————————————\n");
         break;
       }
+
       case "2":
         GameScoreboard.getInstance().goalAway();
         console.log("\n  ————————————————————————————————————————————————————————\n");
         console.log("\n  Away Goal. West Ham United just scored. :( \n");
         console.log("\n  ————————————————————————————————————————————————————————\n");
         break;
+
       case "3": {
         const score = GameScoreboard.getInstance().getCurrentScore();
+
         console.log("\n  ———————————————————————————————————————————————————————————————\n");
         console.log(`\n  Radio Broadcast Score: ${score}`);
         console.log(`  TV Broadcast Score: ${score}\n`);
@@ -181,13 +184,16 @@ function runControlPanel(): void {
         console.log("\n  ———————————————————————————————————————————————————————————————\n");
         break;
       }
+
       case "4":
         GameScoreboard.getInstance().reset();
         console.log("\n  Game scoreboard reset.\n");
         break;
+      
       case "5":
         endTheGame();
         return;
+      
       default:
         console.log("\n\n  Please enter a number from 1 to 5.\n");
     }
@@ -203,7 +209,8 @@ function endTheGame(): void {
   const away = board.getAwayGoals();
 
   console.log("\n  ———————————————————————————————————————————————————————————————\n");
-  console.log("\n  ——— Full time ———\n");
+  console.log("\n  ——— Whistle! Whistle! ———\n");
+  console.log("\n  ——— Game Over! ———\n");
   console.log("\n  ———————————————————————————————————————————————————————————————\n");
 
   if (home > away) {
@@ -226,6 +233,10 @@ function endTheGame(): void {
   quitDemo();
 }
 
-// --- DEMO! In the terminal, run "npm run dev" to start! ---
-console.log("\n===== Singleton Design Pattern: Game Scoreboard =====\n");
-askStartOrCancel();
+function quitDemo(): void {
+  console.log("\n\n ------------------------------------------------------------------------------ \n");
+  console.log("\n  Thank you for visiting Nelson Road Stadium and supporting AFC Richmond! \n");
+  console.log("\n  Have a great day! \n");
+  console.log("\n ------------------------------------------------------------------------------ \n\n\n");
+  rl.close();
+}

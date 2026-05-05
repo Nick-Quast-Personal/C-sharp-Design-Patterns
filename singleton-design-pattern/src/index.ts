@@ -69,11 +69,10 @@ class GameScoreboard {
   }
 }
 
-
-
-
 // --- DEMO! In the terminal, run "npm run dev" to start! ---
-console.log("\n=============== Singleton Design Pattern: Game Scoreboard ===============\n");
+console.log(
+  "\n=============== Singleton Design Pattern: Game Scoreboard ===============\n"
+);
 askStartOrCancel();
 
 function askStartOrCancel(): void {
@@ -146,7 +145,7 @@ function printMenu(): void {
   console.log("");
 }
 
-// Control panel 
+// Control panel
 // This is a function that runs the control panel and handles the user's input.
 function runControlPanel(): void {
   printMenu();
@@ -157,31 +156,43 @@ function runControlPanel(): void {
       case "1": {
         GameScoreboard.getInstance().goalHome();
         const scorer = getRandomRichmondPlayer();
-        console.log("\n  ————————————————————————————————————————————————————————\n");
+        console.log(
+          "\n  ————————————————————————————————————————————————————————\n"
+        );
         console.log("\n  Home Goal!");
         console.log("\n  AFC Richmond just scored!");
         console.log(`\n  What a beautiful kick from ${scorer}!\n`);
-        console.log("\n  ————————————————————————————————————————————————————————\n");
+        console.log(
+          "\n  ————————————————————————————————————————————————————————\n"
+        );
         break;
       }
 
       case "2":
         GameScoreboard.getInstance().goalAway();
-        console.log("\n  ————————————————————————————————————————————————————————\n");
+        console.log(
+          "\n  ————————————————————————————————————————————————————————\n"
+        );
         console.log("\n  Away Goal. West Ham United just scored. :( \n");
-        console.log("\n  ————————————————————————————————————————————————————————\n");
+        console.log(
+          "\n  ————————————————————————————————————————————————————————\n"
+        );
         break;
 
       case "3": {
         const score = GameScoreboard.getInstance().getCurrentScore();
 
-        console.log("\n  ———————————————————————————————————————————————————————————————\n");
+        console.log(
+          "\n  ———————————————————————————————————————————————————————————————\n"
+        );
         console.log(`\n  Radio Broadcast Score: ${score}`);
         console.log(`  TV Broadcast Score: ${score}\n`);
         console.log(
           "  (Note: Both Radio and TV broadcast use the same scoreboard.)\n"
         );
-        console.log("\n  ———————————————————————————————————————————————————————————————\n");
+        console.log(
+          "\n  ———————————————————————————————————————————————————————————————\n"
+        );
         break;
       }
 
@@ -189,11 +200,11 @@ function runControlPanel(): void {
         GameScoreboard.getInstance().reset();
         console.log("\n  Game scoreboard reset.\n");
         break;
-      
+
       case "5":
         endTheGame();
         return;
-      
+
       default:
         console.log("\n\n  Please enter a number from 1 to 5.\n");
     }
@@ -208,10 +219,14 @@ function endTheGame(): void {
   const home = board.getHomeGoals();
   const away = board.getAwayGoals();
 
-  console.log("\n  ———————————————————————————————————————————————————————————————\n");
+  console.log(
+    "\n  ———————————————————————————————————————————————————————————————\n"
+  );
   console.log("\n  ——— Whistle! Whistle! ———\n");
   console.log("\n  ——— Game Over! ———\n");
-  console.log("\n  ———————————————————————————————————————————————————————————————\n");
+  console.log(
+    "\n  ———————————————————————————————————————————————————————————————\n"
+  );
 
   if (home > away) {
     console.log("\n  Winner = AFC Richmond!");
@@ -234,9 +249,15 @@ function endTheGame(): void {
 }
 
 function quitDemo(): void {
-  console.log("\n\n ------------------------------------------------------------------------------ \n");
-  console.log("\n  Thank you for visiting Nelson Road Stadium and supporting AFC Richmond! \n");
+  console.log(
+    "\n\n ------------------------------------------------------------------------------ \n"
+  );
+  console.log(
+    "\n  Thank you for visiting Nelson Road Stadium and supporting AFC Richmond! \n"
+  );
   console.log("\n  Have a great day! \n");
-  console.log("\n ------------------------------------------------------------------------------ \n\n\n");
+  console.log(
+    "\n ------------------------------------------------------------------------------ \n\n\n"
+  );
   rl.close();
 }

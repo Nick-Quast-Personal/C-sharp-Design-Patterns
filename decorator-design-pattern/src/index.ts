@@ -30,8 +30,8 @@ function packageTotalUsd(pkg: GameDayPackage): number {
 // Receipt line
 // This is the receipt line at the bottom of the receipt.
 interface ReceiptLine {
-  readonly label: string;
-  readonly amountUsd: number;
+  readonly label: string; // "TOTAL"
+  readonly amountUsd: number; // $0.00
 }
 
 // Game day package
@@ -41,7 +41,7 @@ interface GameDayPackage {
 }
 
 // General admission
-// This class is the concrete component for the general admission ticket.
+// This class is the concrete component for the general admission ticket. The "baseline".
 class GeneralAdmission implements GameDayPackage {
   lineItems(): readonly ReceiptLine[] {
     return [

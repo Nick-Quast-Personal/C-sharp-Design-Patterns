@@ -1,37 +1,27 @@
 // ----------------------------------- Singleton Code Example! -----------------------------------
 // ----- Behind the scenes code / logic -----
 
-// This allows us to read input from the terminal.
+// Read typed answers in the terminal.
 import * as readline from "readline";
-import { getRandomRichmondPlayer } from "./afcRichmondPlayers";
-import {
-  coinResultPhrase,
-  flipCoin,
-  parseCoinChoice,
-  richmondWonCoinToss,
-} from "./coinToss";
 
-// Set up readline to read terminal input.
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-// GameScoreboard (Singleton. (Only one instance of the class can be created.))
+/** Singleton: one shared GameScoreboard; use getInstance() — not `new GameScoreboard()`. */
 class GameScoreboard {
   private static instance: GameScoreboard | undefined;
 
-  // The home and away teams are constants.
   readonly homeTeam = "Home";
   readonly awayTeam = "Away";
 
   private homeGoals = 0;
   private awayGoals = 0;
 
-  // This means its a private constructor and you can't have multiple GameScoreboards.
   private constructor() {}
 
-  // This is a method that returns the score of the game from the GameScoreboard.
+  /** Returns the single shared instance (created on first call). */
   static getInstance(): GameScoreboard {
     if (!GameScoreboard.instance) {
       GameScoreboard.instance = new GameScoreboard();
@@ -39,17 +29,14 @@ class GameScoreboard {
     return GameScoreboard.instance;
   }
 
-  // Home Point
   goalHome(): void {
     this.homeGoals += 1;
   }
 
-  // Away Point
   goalAway(): void {
     this.awayGoals += 1;
   }
 
-  // Reset the game scoreboard
   reset(): void {
     this.homeGoals = 0;
     this.awayGoals = 0;
@@ -63,64 +50,25 @@ class GameScoreboard {
     return this.awayGoals;
   }
 
-  // Get the current score of the game
+  /** Display string built from the same object’s goal counts (not the Singleton itself — that’s GameScoreboard). */
   getCurrentScore(): string {
     return `${this.homeTeam} ${this.homeGoals} – ${this.awayGoals} ${this.awayTeam}`;
   }
 }
 
+
+
+
 // --- DEMO! In the terminal, run "npm run dev" to start! ---
 console.log(
   "\n=============== Singleton Design Pattern: Game Scoreboard ===============\n"
 );
-askStartOrCancel();
+console.log(
+  " Singleton Pattern: Only one instance of the GameScoreboard class can be created.\n"
+);
 
-function askStartOrCancel(): void {
-  console.log("\n Welcome to the AFC Richmond vs. West Ham United game! \n");
-  console.log("Would you like to...");
-  console.log("1. Start the Game");
-  console.log("2. Cancel the game.\n");
-  rl.question("Enter 1 or 2: ", (answer: string) => {
-    const choice = answer.trim();
-    if (choice === "1") {
-      askRichmondCoinChoice();
-    } else if (choice === "2") {
-      quitDemo();
-    } else {
-      console.log("\n  Please enter 1 or 2.\n");
-      askStartOrCancel();
-    }
-  });
-}
+runControlPanel();
 
-function askRichmondCoinChoice(): void {
-  console.log("\n\n Would AFC Richmond like Heads or Tails? \n");
-  rl.question("Enter heads or tails: ", (answer: string) => {
-    const pick = parseCoinChoice(answer);
-    if (!pick) {
-      console.log("\n  Please enter heads or tails.\n");
-      askRichmondCoinChoice();
-      return;
-    }
-
-    const landed = flipCoin();
-    console.log(`\n  ${coinResultPhrase(landed)}!\n`);
-
-    if (richmondWonCoinToss(pick, landed)) {
-      console.log("\n  AFC Richmond has won the coin toss!\n");
-    } else {
-      console.log("\n  West Ham United has won the coin toss.\n");
-    }
-
-    console.log("\n  Let's start the game!\n");
-    console.log(
-      "\n Note: There is only one GameScoreboard (source of truth). Radio and TV broadcasts both read it.\n"
-    );
-    runControlPanel();
-  });
-}
-
-// Stadium scoreboard display (the physical board at Nelson Road — still fed by the same GameScoreboard singleton).
 function printNelsonRoadScoreboard(): void {
   const board = GameScoreboard.getInstance();
   console.log("\n  ┌─────────────────────────────┐");
@@ -132,73 +80,55 @@ function printNelsonRoadScoreboard(): void {
   console.log("  └─────────────────────────────┘\n");
 }
 
-// Menu Options (stadium scoreboard is shown before every control panel — same GameScoreboard singleton).
 function printMenu(): void {
   printNelsonRoadScoreboard();
   console.log("--- Control Panel ---");
   console.log("--- Select an option: ---");
-  console.log("  1  Goal for Home");
-  console.log("  2  Goal for Away");
+  console.log("  1  Goal for Home (AFC Richmond)");
+  console.log("  2  Goal for Away (West Ham United)");
   console.log("  3  Show current radio and TV score");
   console.log("  4  Reset game");
   console.log("  5  End the game & quit");
   console.log("");
 }
 
-// Control panel
-// This is a function that runs the control panel and handles the user's input.
 function runControlPanel(): void {
   printMenu();
   rl.question("Pick an option (1–5): ", (answer: string) => {
     const choice = answer.trim();
 
     switch (choice) {
-      case "1": {
+      case "1":
         GameScoreboard.getInstance().goalHome();
-        const scorer = getRandomRichmondPlayer();
-        console.log(
-          "\n  ————————————————————————————————————————————————————————\n"
-        );
-        console.log("\n  Home Goal!");
-        console.log("\n  AFC Richmond just scored!");
-        console.log(`\n  What a beautiful kick from ${scorer}!\n`);
-        console.log(
-          "\n  ————————————————————————————————————————————————————————\n"
-        );
+        console.log(`\n\n  --------------------------------------------------------------`);
+        console.log("\n  Home goal! AFC Richmond scores.\n");
+        console.log(`\n  --------------------------------------------------------------`);
         break;
-      }
 
       case "2":
         GameScoreboard.getInstance().goalAway();
-        console.log(
-          "\n  ————————————————————————————————————————————————————————\n"
-        );
-        console.log("\n  Away Goal. West Ham United just scored. :( \n");
-        console.log(
-          "\n  ————————————————————————————————————————————————————————\n"
-        );
+        console.log(`\n\n  --------------------------------------------------------------`);
+        console.log("\n  Away goal — West Ham United.\n");
+        console.log(`\n  --------------------------------------------------------------`);
         break;
 
       case "3": {
-        const score = GameScoreboard.getInstance().getCurrentScore();
+        const officialScoreText =
+          GameScoreboard.getInstance().getCurrentScore();
 
+        console.log(`\n\n  --------------------------------------------------------------`);
+        console.log(`\n Radio Broadcast Score: ${officialScoreText}`);
+        console.log(`\n TV Broadcast Score: ${officialScoreText}\n`);
         console.log(
-          "\n  ———————————————————————————————————————————————————————————————\n"
+          " (Both use GameScoreboard.getInstance().getCurrentScore() — one object.)\n"
         );
-        console.log(`\n  Radio Broadcast Score: ${score}`);
-        console.log(`  TV Broadcast Score: ${score}\n`);
-        console.log(
-          "  (Note: Both Radio and TV broadcast use the same scoreboard.)\n"
-        );
-        console.log(
-          "\n  ———————————————————————————————————————————————————————————————\n"
-        );
+        console.log(`\n  --------------------------------------------------------------`);
         break;
       }
 
       case "4":
         GameScoreboard.getInstance().reset();
-        console.log("\n  Game scoreboard reset.\n");
+        console.log("\n  Scoreboard reset.\n");
         break;
 
       case "5":
@@ -206,7 +136,7 @@ function runControlPanel(): void {
         return;
 
       default:
-        console.log("\n\n  Please enter a number from 1 to 5.\n");
+        console.log("\n  Please enter a number from 1 to 5.\n");
     }
 
     runControlPanel();
@@ -250,14 +180,9 @@ function endTheGame(): void {
 
 function quitDemo(): void {
   console.log(
-    "\n\n ------------------------------------------------------------------------------ \n"
+    "\n ------------------------------------------------------------------------------ \n"
   );
-  console.log(
-    "\n  Thank you for visiting Nelson Road Stadium and supporting AFC Richmond! \n"
-  );
-  console.log("\n  Have a great day! \n");
-  console.log(
-    "\n ------------------------------------------------------------------------------ \n\n\n"
-  );
+  console.log("\n  Thank you for visiting Nelson Road Stadium! \n");
+  console.log("\n ------------------------------------------------------------------------------ \n\n\n");
   rl.close();
 }

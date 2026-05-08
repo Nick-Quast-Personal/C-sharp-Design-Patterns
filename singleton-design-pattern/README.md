@@ -11,15 +11,13 @@ Hide the constructor (or otherwise prevent `new`) and expose a `getInstance()` (
 - Exactly one shared object must coordinate state across the app (with caution: prefer dependency injection when testing and flexibility matter more).
 - Controlled lazy initialization: create the instance only when first needed.
 
-## Example: Game Scoreboard
+## Example: Game Scoreboard (`src/index.ts`)
 
-- **`GameScoreboard`** is the singleton **source of truth** for the score. **`getInstance()`** returns the only instance; **`goalHome`** / **`goalAway`** update tallies (Home = AFC Richmond, Away = West Ham United in the demo copy).
-- Before every **Control Panel**, the demo prints the **Nelson Road** stadium scoreboard from that same singleton.
-- Option **3** prints **Radio** and **TV** lines using **`getCurrentScore()`** — two broadcasters, one object.
-- Option **4** ends the match: **AFC Richmond** wins if Home goals are ahead, **West Ham United** if Away is ahead, otherwise a short draw message; then the program exits.
-- On launch, choose **Start the Game** or **Cancel the game.** (cancel has the same goodbye as **Quit**).
-- After **Start**, Richmond picks **heads** or **tails** (case-insensitive); **[`src/coinToss.ts`](src/coinToss.ts)** flips the coin and decides the toss winner, then **Let's start the game!** and the singleton intro before the control panel.
-- Home goals pick a random Richmond player from **[`src/afcRichmondPlayers.ts`](src/afcRichmondPlayers.ts)** (`getRandomRichmondPlayer()`).
+- **`GameScoreboard`** is the **Singleton**: `getInstance()` returns the only instance; **`goalHome`** / **`goalAway`** update shared tallies; **`getCurrentScore()`** returns the score **string** for displays.
+- On startup the demo prints **`getInstance() === getInstance()`** → `true`, then the **control panel** loop.
+- Before each menu, the **Nelson Road** ASCII board reads that same instance.
+- Option **3** prints radio + TV lines from **`GameScoreboard.getInstance().getCurrentScore()`**.
+- **4** resets; **5** full time + goodbye.
 
 ## How to Run
 
@@ -29,34 +27,12 @@ npm install
 npm run dev
 ```
 
-The scoreboard appears each turn; use **3** for radio/TV copy, **4** for full time when you want to wrap up.
-
-### Example Output (excerpt)
+### Menu
 
 ```
-  ┌─────────────────────────────┐
-  │    N E L S O N  R O A D     │
-  │        S T A D I U M        │
-  │                             │
-  │      Home 1 – 0 Away        │
-  │                             │
-  └─────────────────────────────┘
-
---- Control Panel ---
---- Select an option: ---
-  1  Goal for Home
-  2  Goal for Away
+  1  Goal for Home (AFC Richmond)
+  2  Goal for Away (West Ham United)
   3  Show current radio and TV score
-  4  End the Game
-  5  Reset game
-  6  Quit
+  4  Reset game
+  5  End the game & quit
 ```
-
-Option **3** then shows:
-
-```
-  Radio Broadcast Score: Home 1 – 0 Away
-  TV Broadcast Score: Home 1 – 0 Away
-```
-
-Option **4** with Home ahead prints Richmond winning and promotion to the Premier League; with Away ahead, West Ham wins and a tough-loss line for the Greyhounds.

@@ -283,7 +283,6 @@ function grantStadiumEntry(context: StadiumEntryContext): StadiumEntryContext {
 
 
 
-
 // --- DEMO! In the terminal, run "npm run dev" to start! ---
 
 async function main(): Promise<void> {

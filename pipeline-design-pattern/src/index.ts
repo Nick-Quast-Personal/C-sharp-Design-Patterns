@@ -41,7 +41,7 @@ const rl = readline.createInterface({
 // This function asks the user a question and returns the answer.
 function question(prompt: string): Promise<string> {
   return new Promise((resolve) => {
-    rl.question(prompt, (answer) => resolve(answer.trim()));
+    rl.question(prompt, (answer: string) => resolve(answer.trim()));
   });
 }
 

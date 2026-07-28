@@ -1,0 +1,8 @@
+{
+  "name": "csharp-design-patterns",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "typescript": "^5.7"
+  }
+}

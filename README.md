@@ -1,66 +1,51 @@
 # C# Design Patterns
 
-This repository contains implementations of various Design Patterns in TypeScript/JavaScript.
+This repository contains hands-on demonstrations of common design patterns. Most demos are interactive **TypeScript** programs you run in the terminal; some folders also include **C# reference implementations** that show how the same ideas appear in production code.
 
 Design patterns are reusable solutions to common software design problems. They provide proven, tested development paradigms that can help speed up the development process and improve code quality.
 
 ## Patterns Included
 
-- **[observer-design-pattern](./observer-design-pattern/)** - Demonstrates the Observer pattern with a trucking company example. Includes both JavaScript and TypeScript implementations.
-- **[strategy-design-pattern](./strategy-design-pattern/)** - Demonstrates the Strategy pattern with a shipping cost calculator example in TypeScript.
-- **[factory-method-design-pattern](./factory-method-design-pattern/)** - Demonstrates the Factory Method pattern with New York vs Chicago pizza stores (thin crust vs deep dish) in TypeScript.
-- **[singleton-design-pattern](./singleton-design-pattern/)** - Demonstrates the Singleton pattern with a shared game scoreboard (radio and TV broadcasts) in TypeScript.
-- **[decorator-design-pattern](./decorator-design-pattern/)** - Demonstrates the Decorator pattern with optional game-day package add-ons (VIP, parking, merch) in TypeScript.
+| Pattern | Folder | Demo scenario |
+|---------|--------|---------------|
+| **Observer** | [observer-design-pattern](./observer-design-pattern/) | Trucking company broadcasts driver status to subscribers (JavaScript and TypeScript) |
+| **Strategy** | [strategy-design-pattern](./strategy-design-pattern/) | Shipping cost calculator swaps pricing algorithms at runtime |
+| **Factory Method** | [factory-method-design-pattern](./factory-method-design-pattern/) | New York vs Chicago pizza stores (thin crust vs deep dish) |
+| **Singleton** | [singleton-design-pattern](./singleton-design-pattern/) | Shared game scoreboard for radio and TV broadcasts |
+| **Decorator** | [decorator-design-pattern](./decorator-design-pattern/) | Optional game-day package add-ons (VIP, parking, merch) |
+| **Template Method** | [template-method-design-pattern](./template-method-design-pattern/) | Walmart self-checkout payment flow with bank-specific steps |
+| **Circuit Breaker** | [circuit-breaker-pattern](./circuit-breaker-pattern/) | Walmart+ grocery refund when the refund API is down |
+| **Pipeline** | [pipeline-design-pattern](./pipeline-design-pattern/) | 2026 World Cup stadium entry (scan → verify → VIP check → grant entry) |
+
+Each folder has its own README with pattern details, when to use it, and demo hints.
 
 ## How to Run
 
-Each folder is self-contained with its own files and dependencies.
+Each folder is self-contained with its own `package.json` and dependencies.
 
-### Observer Design Pattern
+### TypeScript demos (most patterns)
+
+```bash
+cd <pattern-folder>
+npm install
+npm run dev
+```
+
+This applies to: `strategy-design-pattern`, `factory-method-design-pattern`, `singleton-design-pattern`, `decorator-design-pattern`, `template-method-design-pattern`, `circuit-breaker-pattern`, and `pipeline-design-pattern`.
+
+### Observer (JavaScript / TypeScript at folder root)
 
 ```bash
 cd observer-design-pattern
-node index.js        # Run the JavaScript version
+node index.js        # JavaScript version
 # or
-npx ts-node index.ts # Run the TypeScript version (requires ts-node)
-```
-
-### Strategy Design Pattern
-
-```bash
-cd strategy-design-pattern
-npm install
-npm start
-```
-
-### Factory Method Design Pattern
-
-```bash
-cd factory-method-design-pattern
-npm install
-npm run dev
-```
-
-### Singleton Design Pattern
-
-```bash
-cd singleton-design-pattern
-npm install
-npm run dev
-```
-
-### Decorator Design Pattern
-
-```bash
-cd decorator-design-pattern
-npm install
-npm run dev
+npx ts-node index.ts # TypeScript version (requires ts-node)
 ```
 
 ## Project Structure
 
 ```
-C-sharp-Design-Patterns/
+csharp-design-patterns/
 ├── observer-design-pattern/
 │   ├── index.js
 │   ├── index.ts
@@ -81,8 +66,22 @@ C-sharp-Design-Patterns/
 │   ├── src/
 │   ├── package.json
 │   └── tsconfig.json
-├── README.md
-└── (more patterns to come)
+├── template-method-design-pattern/
+│   ├── src/
+│   ├── package.json
+│   └── tsconfig.json
+├── circuit-breaker-pattern/
+│   ├── src/
+│   ├── package.json
+│   └── tsconfig.json
+├── pipeline-design-pattern/
+│   ├── src/
+│   │   ├── index.ts
+│   │   └── Pipeline Examples/   # C# reference implementations
+│   ├── package.json
+│   └── tsconfig.json
+├── package.json
+└── README.md
 ```
 
 ## Contributing
@@ -93,3 +92,4 @@ Feel free to add new design patterns or improve existing implementations!
 
 - [Design Patterns: Elements of Reusable Object-Oriented Software](https://en.wikipedia.org/wiki/Design_Patterns) (Gang of Four book)
 - [Refactoring Guru - Design Patterns](https://refactoring.guru/design-patterns)
+- [Martin Fowler — Circuit Breaker](https://martinfowler.com/bliki/CircuitBreaker.html)

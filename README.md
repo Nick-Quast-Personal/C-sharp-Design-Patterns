@@ -90,6 +90,7 @@ Feel free to add new design patterns or improve existing implementations!
 
 ## Resources
 
+- [dofactory — C# Design Patterns](https://www.dofactory.com/net/design-patterns) — primary reference for this repo (GoF patterns with structural, real-world, and .NET-optimized C# examples)
 - [Design Patterns: Elements of Reusable Object-Oriented Software](https://en.wikipedia.org/wiki/Design_Patterns) (Gang of Four book)
 - [Refactoring Guru - Design Patterns](https://refactoring.guru/design-patterns)
 - [Martin Fowler — Circuit Breaker](https://martinfowler.com/bliki/CircuitBreaker.html)

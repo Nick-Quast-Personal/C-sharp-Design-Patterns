@@ -13,6 +13,7 @@ Design patterns are reusable solutions to common software design problems. They 
 | **Factory Method** | [factory-method-design-pattern](./factory-method-design-pattern/) | New York vs Chicago pizza stores (thin crust vs deep dish) |
 | **Singleton** | [singleton-design-pattern](./singleton-design-pattern/) | Shared game scoreboard for radio and TV broadcasts |
 | **Decorator** | [decorator-design-pattern](./decorator-design-pattern/) | Optional game-day package add-ons (VIP, parking, merch) |
+| **Adapter** | [adapter-design-pattern](./adapter-design-pattern/) | Weather App adapts legacy Celsius third-party API to Fahrenheit |
 | **Template Method** | [template-method-design-pattern](./template-method-design-pattern/) | Walmart self-checkout payment flow with bank-specific steps |
 | **Circuit Breaker** | [circuit-breaker-pattern](./circuit-breaker-pattern/) | Walmart+ grocery refund when the refund API is down |
 | **Pipeline** | [pipeline-design-pattern](./pipeline-design-pattern/) | 2026 World Cup stadium entry (scan → verify → VIP check → grant entry) |
@@ -31,7 +32,7 @@ npm install
 npm run dev
 ```
 
-This applies to: `strategy-design-pattern`, `factory-method-design-pattern`, `singleton-design-pattern`, `decorator-design-pattern`, `template-method-design-pattern`, `circuit-breaker-pattern`, and `pipeline-design-pattern`.
+This applies to: `strategy-design-pattern`, `factory-method-design-pattern`, `singleton-design-pattern`, `decorator-design-pattern`, `adapter-design-pattern`, `template-method-design-pattern`, `circuit-breaker-pattern`, and `pipeline-design-pattern`.
 
 ### Observer (JavaScript / TypeScript at folder root)
 
@@ -63,6 +64,10 @@ csharp-design-patterns/
 │   ├── package.json
 │   └── tsconfig.json
 ├── decorator-design-pattern/
+│   ├── src/
+│   ├── package.json
+│   └── tsconfig.json
+├── adapter-design-pattern/
 │   ├── src/
 │   ├── package.json
 │   └── tsconfig.json

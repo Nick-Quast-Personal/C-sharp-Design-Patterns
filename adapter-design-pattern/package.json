@@ -1,0 +1,15 @@
+{
+  "name": "adapter-design-pattern",
+  "version": "1.0.0",
+  "description": "Adapter Design Pattern demo — Fahrenheit weather app with legacy Celsius API",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js",
+    "dev": "tsc && node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "typescript": "^5.7"
+  }
+}

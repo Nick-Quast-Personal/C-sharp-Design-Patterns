@@ -8,15 +8,16 @@ Design patterns are reusable solutions to common software design problems. They 
 
 | Pattern | Folder | Demo scenario |
 |---------|--------|---------------|
-| **Observer** | [observer-design-pattern](./observer-design-pattern/) | Trucking company broadcasts driver status to subscribers (JavaScript and TypeScript) |
-| **Strategy** | [strategy-design-pattern](./strategy-design-pattern/) | Shipping cost calculator swaps pricing algorithms at runtime |
-| **Factory Method** | [factory-method-design-pattern](./factory-method-design-pattern/) | New York vs Chicago pizza stores (thin crust vs deep dish) |
-| **Singleton** | [singleton-design-pattern](./singleton-design-pattern/) | Shared game scoreboard for radio and TV broadcasts |
-| **Decorator** | [decorator-design-pattern](./decorator-design-pattern/) | Optional game-day package add-ons (VIP, parking, merch) |
 | **Adapter** | [adapter-design-pattern](./adapter-design-pattern/) | Weather App adapts legacy Celsius third-party API to Fahrenheit |
-| **Template Method** | [template-method-design-pattern](./template-method-design-pattern/) | Walmart self-checkout payment flow with bank-specific steps |
 | **Circuit Breaker** | [circuit-breaker-pattern](./circuit-breaker-pattern/) | Walmart+ grocery refund when the refund API is down |
+| **Command** | [command-design-pattern](./command-design-pattern/) | Restaurant order tickets: a waiter passes orders to chefs who cook them |
+| **Decorator** | [decorator-design-pattern](./decorator-design-pattern/) | Optional game-day package add-ons (VIP, parking, merch) |
+| **Factory Method** | [factory-method-design-pattern](./factory-method-design-pattern/) | New York vs Chicago pizza stores (thin crust vs deep dish) |
+| **Observer** | [observer-design-pattern](./observer-design-pattern/) | Trucking company broadcasts driver status to subscribers (JavaScript and TypeScript) |
 | **Pipeline** | [pipeline-design-pattern](./pipeline-design-pattern/) | 2026 World Cup stadium entry (scan → verify → VIP check → grant entry) |
+| **Singleton** | [singleton-design-pattern](./singleton-design-pattern/) | Shared game scoreboard for radio and TV broadcasts |
+| **Strategy** | [strategy-design-pattern](./strategy-design-pattern/) | Shipping cost calculator swaps pricing algorithms at runtime |
+| **Template Method** | [template-method-design-pattern](./template-method-design-pattern/) | Walmart self-checkout payment flow with bank-specific steps |
 
 Each folder has its own README with pattern details, when to use it, and demo hints.
 
@@ -32,7 +33,7 @@ npm install
 npm run dev
 ```
 
-This applies to: `strategy-design-pattern`, `factory-method-design-pattern`, `singleton-design-pattern`, `decorator-design-pattern`, `adapter-design-pattern`, `template-method-design-pattern`, `circuit-breaker-pattern`, and `pipeline-design-pattern`.
+This applies to: `strategy-design-pattern`, `factory-method-design-pattern`, `singleton-design-pattern`, `decorator-design-pattern`, `adapter-design-pattern`, `template-method-design-pattern`, `circuit-breaker-pattern`, `pipeline-design-pattern`, and `command-design-pattern`.
 
 ### Observer (JavaScript / TypeScript at folder root)
 
@@ -83,6 +84,11 @@ csharp-design-patterns/
 │   ├── src/
 │   │   ├── index.ts
 │   │   └── Pipeline Examples/   # C# reference implementations
+│   ├── package.json
+│   └── tsconfig.json
+├── command-design-pattern/
+│   ├── src/
+│   │   └── index.ts
 │   ├── package.json
 │   └── tsconfig.json
 ├── package.json

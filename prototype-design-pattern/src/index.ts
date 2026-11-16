@@ -1,12 +1,6 @@
 // ----- Prototype Design Pattern Demo -----
 
-// Nested object that belongs to a button
-interface ButtonStyle {
-    borderRadius: number;
-    shadow: boolean;
-}
-
-// Prototype interface
+// Prototype interface (every duplicate needs to have "clone")
 interface IPrototype {
     clone(): IPrototype;
 }
@@ -17,20 +11,20 @@ class Button implements IPrototype {
     private color: string;
     private width: number;
     private height: number;
-    private style: ButtonStyle;
+    private borderRadius: number;
 
-    constructor(label: string, color: string, width: number, height: number, style: ButtonStyle) {
+    // Sets the fields
+    constructor(label: string, color: string, width: number, height: number, borderRadius: number) {
         this.label = label;
         this.color = color;
         this.width = width;
         this.height = height;
-        this.style = style;
+        this.borderRadius = borderRadius;
     }
 
-    // Deep copy: the style object is copied too, so copies don't share it
+    // Makes a copy of this button
     clone(): Button {
-        const styleCopy: ButtonStyle = { ...this.style };
-        return new Button(this.label, this.color, this.width, this.height, styleCopy);
+        return new Button(this.label, this.color, this.width, this.height, this.borderRadius);
     }
 
     setLabel(label: string): void {
@@ -41,42 +35,75 @@ class Button implements IPrototype {
         this.color = color;
     }
 
-    setBorderRadius(radius: number): void {
-        this.style.borderRadius = radius;
+    setSize(width: number, height: number): void {
+        this.width = width;
+        this.height = height;
     }
 
+    setBorderRadius(borderRadius: number): void {
+        this.borderRadius = borderRadius;
+    }
+
+    // Prints the current button info
     show(): void {
         console.log(
-            `Button "${this.label}" | color: ${this.color} | size: ${this.width}x${this.height} | ` +
-            `borderRadius: ${this.style.borderRadius} | shadow: ${this.style.shadow}`
+            `"${this.label}" Button | color: ${this.color} | size: ${this.width}x${this.height} | ` +
+            `borderRadius: ${this.borderRadius}`
         );
     }
 }
 
-// ---- UX Designer (makes the master design in Figma) ----
+// Demo
+// ---- UX Designer goes to make the buttons ----
+console.log(`UX Designer starts making the buttons...`);
+console.log(`Start with the master button (the sign up button)`);
 
-// Sign Up Button (This is the original / master button)
-const masterButton = new Button("Sign Up", "blue", 200, 50, { borderRadius: 4, shadow: false });
-
-console.log(`UX Designer made the master button:`);
+// Sign Up Button (Original / master button)
+const masterButton = new Button("Sign Up", "blue", 200, 50, 4);
 masterButton.show();
-console.log(`-----`);
+console.log(`---------------------------------------------------------------------------`);
 
-
-//  Login Button (duplicate)
+// Login Button (duplicate)
 const loginButton = masterButton.clone();
 loginButton.setLabel("Log In");
 loginButton.setBorderRadius(20);
 loginButton.show();
-console.log(`-----`);
-
+console.log(`---------------------------------------------------------------------------`);
 
 // Delete Button (duplicate)
 const deleteButton = masterButton.clone();
 deleteButton.setLabel("Delete");
 deleteButton.setColor("red");
 deleteButton.show();
-console.log(`-----`);
+console.log(`---------------------------------------------------------------------------`);
+
+// Test Button (duplicate)
+const testButton = masterButton.clone();
+testButton.setLabel("Test");
+testButton.setColor("orange");
+testButton.setSize(100, 30);
+testButton.setBorderRadius(8);
+testButton.show();
+console.log(`---------------------------------------------------------------------------`);
 
 // Master button is still the same (the copies did not change it)
+console.log(`Show the master (Sign Up) button again`);
 masterButton.show();
+console.log(`--------------------------------------------------------------------------- \n\n`);
+
+// -----
+console.log(`CHANGE MASTER BUTTON (What If?)`);
+console.log(`---------------------------------------------------------------------------`);
+// -----
+
+masterButton.setColor("purple");
+masterButton.show();
+console.log(`---------------------------------------------------------------------------`);
+// -----
+
+const applePayButton = masterButton.clone();
+applePayButton.setLabel("Apple Pay");
+applePayButton.show();
+console.log(`---------------------------------------------------------------------------`);
+
+

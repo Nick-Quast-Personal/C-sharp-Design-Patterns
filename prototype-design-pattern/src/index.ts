@@ -106,4 +106,9 @@ applePayButton.setLabel("Apple Pay");
 applePayButton.show();
 console.log(`---------------------------------------------------------------------------`);
 
+const googlePayButton = masterButton.clone();
+googlePayButton.setLabel("Google Pay");
+googlePayButton.setColor("Yellow");
+googlePayButton.show();
+console.log(`---------------------------------------------------------------------------`);
 
